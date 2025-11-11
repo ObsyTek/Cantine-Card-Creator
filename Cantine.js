@@ -29,18 +29,20 @@ class Card {
         this.alias = "";
         this.pronoms = "";
         this.houseIndex = 0;
-        this.profileSource = new Image();
+        this.blackProfileSource = new Image();
+        this.colorProfileSource = new Image();
 
     }
     Init(){
 
-        this.blackCanvasContext.font = "28px Lato";
-        this.colorCanvasContext.font = "28px Roboto";
+        this.blackCanvasContext.font = "22px Roboto";
+        this.colorCanvasContext.font = "22px Roboto";
 
-        this.blackBackground_img.src = "img/NB/Fonds/Fond_NB.png";
-        this.colorBackground_img.src = "img/Couleur/Fonds/Fond_Couleur.png";
+        this.blackBackground_img.src = "img/NB/Fonds/Fond.png";
+        this.colorBackground_img.src = "img/Couleur/Fonds/Fond.png";
 
-        this.profileSource.src = "img/NB/Fonds/noProfilCentered.png";
+        this.blackProfileSource.src = "img/NB/Fonds/Profil_Pic.png";
+        this.colorProfileSource.src = "img/Couleur/Fonds/Profil_Pic.png";
 
         this.blackTitleStatut_img.src = "img/NB/Intitules/Statut.png";
         this.colorTitleStatut_img.src = "img/Couleur/Intitules/Statut.png";
@@ -71,46 +73,47 @@ class Card {
 
     UpdateCanvas(){
         console.log("Update");
-        this.blackCanvasContext.drawImage(this.profileSource, 22, 52,88,88);
+        this.blackCanvasContext.drawImage(this.blackProfileSource, 22, 52,88,88);
+        this.colorCanvasContext.drawImage(this.colorProfileSource, 22, 52,88,88);
 
-        this.blackCanvasContext.drawImage(this.blackBackground_img,0,0);
-        this.colorCanvasContext.drawImage(this.colorBackground_img,0,0);
+        this.blackCanvasContext.drawImage(this.blackBackground_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorBackground_img,0,0,380,242);
 
         //-STATUT-
-        this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0);
-        this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0);
+        this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
 
         let fullStatut = this.statut;
         if(this.statut == "Invite" && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
-        this.blackCanvasContext.fillText(fullStatut,120,85);
-        this.colorCanvasContext.fillText(fullStatut,120,85);
+        this.blackCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
+        this.colorCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
 
         //-PSEUDO--
-        this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0);
-        this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0);
+        this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
 
-        this.blackCanvasContext.fillText(this.pseudo,120,130);
-        this.colorCanvasContext.fillText(this.pseudo,120,130);
+        this.blackCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
+        this.colorCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
 
         //-ALIAS-
-        this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0);
-        this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0);
+        this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
 
-        this.blackCanvasContext.fillText(this.alias,120,180);
-        this.colorCanvasContext.fillText(this.alias,120,180);
+        this.blackCanvasContext.fillText(this.alias.toUpperCase(),120,180);
+        this.colorCanvasContext.fillText(this.alias.toUpperCase(),120,180);
 
         //-PRONOM-
-        this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0);
-        this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0);
+        this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
 
-        this.blackCanvasContext.fillText(this.pronoms.replaceAll(" "," / "),120,230);
-        this.colorCanvasContext.fillText(this.pronoms.replaceAll(" "," / "),120,230);
+        this.blackCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
+        this.colorCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
 
         //-HOUSE-
-        this.blackCanvasContext.drawImage(this.blackHouseImg,0,0);
-        this.colorCanvasContext.drawImage(this.colorHouseImg,0,0);
+        this.blackCanvasContext.drawImage(this.blackHouseImg,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorHouseImg,0,0),380,242;
     }
 }
 function UpdateField(fieldId, thisEllement) {
@@ -172,8 +175,9 @@ document.getElementById('house').onchange = function () {
 }
 document.getElementById('profilImage').onchange = function () {
     console.log(this.value);
-    card.profileSource.src = URL.createObjectURL(document.getElementById('profilImage').files[0]);
-    card.SetHouseImage();
+    card.blackProfileSource.src = URL.createObjectURL(document.getElementById('profilImage').files[0]);
+    card.colorProfileSource.src = URL.createObjectURL(document.getElementById('profilImage').files[0]);
+    card.UpdateCanvas();
 }
 
 card.UpdateCanvas();
