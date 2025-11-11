@@ -30,15 +30,6 @@ a {
     color: #0297FF;
     width: 100vw;
 }
-.helper-link{
-    display: block;
-    color: #0297FF;
-    /*background-color: #FFFFFF;*/
-    font-weight: 1000;
-    font-size: 1rem;
-    max-width: 95vw;
-    text-align: center;
-}
 .filling-form *{
     display: flex;
     flex-direction: column;
@@ -69,4 +60,23 @@ a {
     display: flex;
     flex-direction: column;
     font-size: .5em;
+}
+
+.helper-link{
+    display: block;
+    color: #0297FF;
+    /*background-color: #FFFFFF;*/
+    font-weight: 1000;
+    font-size: 1rem;
+    max-width: 95vw;
+    text-align: center;
+    margin-inline: auto;
+}
+.footer p{
+    text-align: center;
+}
+.footer img{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
 }
