@@ -37,23 +37,23 @@
             <label for="inviteur" id="inviteur-label">Invité de:</label>
             <input type="text" name="Inviteur" id="inviteur">
         </div>
-            <!--br-->
-            <div class="item">
+        <!--br-->
+        <div class="item">
             <label for="pseudo"> Pseudo: </label>
             <input type="text" name="Peudo" id="pseudo" placeholder="Pseudo">
-            </div>
+        </div>
             <!--br-->
-            <div class="item">
+        <div class="item">
             <label for="alias"> Prénom/Alias: </label>
             <input type="text" name="Alias" id="alias" placeholder="Alias">
-            </div>
+        </div>
             <!--br-->
-            <div class="item">
+        <div class="item">
             <label for="pronoms"> Pronoms: </label>
             <input type="text" name="Pronoms" id="pronoms" placeholder="il elle iel">
-            </div>
+        </div>
             <!--br-->
-            <div class="item">
+        <div class="item">
             <label for="house">Maison: </label>
             <select id="house" name="house">
                 <option value=0>Sans maison</option>
@@ -62,29 +62,22 @@
                 <option value=3>Campeurdor</option>
                 <option value=4>Lootsouffle</option>
             </select>
-            </div>
+        </div>
             <!--br-->
-            <div class="item">
+        <div class="item">
             <label for="profilImage"> Image de profil: </label>
             <input type="file" id="profilImage" accept="image/*">
-            </div>
-            <!--button type="button" id="upload">Upload profil image</button-->
-            <!--br-->
-            <!--button type="button" onclick="UpdateField(0,this)">Reload Images</button-->
-
-        <!--/form-->
+        </div>
 
     </div>
 
     <div class="generate-img">
         <section class="cardPreview">
-            <canvas id="black-canvas" width="380" height="242" ></canvas>
-
+            <canvas id="black-canvas" width="1040" height="660"></canvas>
             <button onclick="DownloadCard(0)">Download Black</button>
         </section>
         <section class="cardPreview">
-            <canvas id="color-canvas" width="380" height="242" ></canvas>
-
+            <canvas id="color-canvas" width="1040" height="660"></canvas>
             <button onclick="DownloadCard(1)">Download Color</button>
         </section>
     </div>

@@ -37,8 +37,9 @@ a {
     padding-bottom: 0.5rem;
     }
 .container{
+    margin-top: 25vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
