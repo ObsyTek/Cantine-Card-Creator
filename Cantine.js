@@ -138,28 +138,41 @@ class Card {
         if(/^I*^/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
+        this.blackCanvasContext.lineWidth = 7;
+        this.colorCanvasContext.lineWidth = 7;
+        this.blackCanvasContext.strokeStyle = "#EBECEC";
+        this.colorCanvasContext.strokeStyle = "#D2DDF1";
+
+        this.blackCanvasContext.strokeText(fullStatut.toUpperCase(),122,85);
         this.blackCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
-        this.colorCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
+        this.colorCanvasContext.strokeText(fullStatut.toUpperCase(),122,85,);
+        this.colorCanvasContext.fillText(fullStatut.toUpperCase(),122,85,);
 
         //-PSEUDO--
         this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
         this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
 
+        this.blackCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
         this.blackCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
+        this.colorCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
         this.colorCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
 
         //-ALIAS-
         this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
         this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
 
+        this.blackCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
         this.blackCanvasContext.fillText(this.alias.toUpperCase(),120,180);
+        this.colorCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
         this.colorCanvasContext.fillText(this.alias.toUpperCase(),120,180);
 
         //-PRONOM-
         this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
         this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
 
+        this.blackCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
         this.blackCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
+        this.colorCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
         this.colorCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
 
         //-HOUSE-
