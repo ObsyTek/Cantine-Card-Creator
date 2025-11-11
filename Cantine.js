@@ -135,7 +135,7 @@ class Card {
         this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
 
         let fullStatut = this.statut;
-        if(/^I*^/.test(this.statut) && this.inviteur != ""){
+        if(/^I/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
         this.blackCanvasContext.lineWidth = 7;
@@ -210,13 +210,14 @@ card.Init();
 //Events---------------
 document.getElementById('statut').onchange = function () {
     let useDisplay = "none";
-    if(/^I*^/.test(this.statut)){
+    card.statut = this.value;
+    console.log(card.statut);
+    if(/^I/.test(card.statut)){
         useDisplay = "block";
     }
     document.getElementById("inviteur-item").style.display = useDisplay;
     //document.getElementById("inviteur-label").style.display = useDisplay;
 
-    card.statut = this.value;
     card.UpdateCanvas();
 }
 document.getElementById('inviteur').onchange = function () {
