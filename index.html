@@ -22,9 +22,13 @@
         <!--form method="post" action=""-->
         <div class="item">
             <label for="statut">Statut: </label>
-            <select id="statut" name="statut" alt="test">
-                <option value="Academy">Academicien.ne</option>
-                <option value="Invite">Invité.e</option>
+            <select id="statut" name="statut" >
+                <option value="Academicien">Academicien</option>
+                <option value="Academicienne">Academicienne</option>
+                <option value="Academicien.ne">Academicien.ne</option>
+                <option value="Invité">Invité</option>
+                <option value="Invitée">Invitée</option>
+                <option value="Invité.e">Invité.e</option>
             </select>
         </div>
         <div id="inviteur-item" style="display: none">
@@ -64,7 +68,7 @@
             </div>
             <!--button type="button" id="upload">Upload profil image</button-->
             <!--br-->
-            <button type="button" onclick="UpdateField(0,this)">Reload Images</button>
+            <!--button type="button" onclick="UpdateField(0,this)">Reload Images</button-->
 
         <!--/form-->
 

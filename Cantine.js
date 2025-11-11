@@ -39,36 +39,87 @@ class Card {
         this.colorCanvasContext.font = "22px Roboto";
 
         this.blackBackground_img.src = "img/NB/Fonds/Fond.png";
+        this.blackBackground_img.onload = function (){
+            initLoaded();
+        }
         this.colorBackground_img.src = "img/Couleur/Fonds/Fond.png";
+        this.colorBackground_img.onload = function (){
+            initLoaded();
+        }
 
         this.blackProfileSource.src = "img/NB/Fonds/Profil_Pic.png";
+        this.blackProfileSource.onload = function (){
+            initLoaded();
+        }
         this.colorProfileSource.src = "img/Couleur/Fonds/Profil_Pic.png";
+        this.colorProfileSource.onload = function (){
+            initLoaded();
+        }
 
         this.blackTitleStatut_img.src = "img/NB/Intitules/Statut.png";
+        this.blackTitleStatut_img.onload = function (){
+            initLoaded();
+        }
         this.colorTitleStatut_img.src = "img/Couleur/Intitules/Statut.png";
+        this.colorTitleStatut_img.onload = function (){
+            initLoaded();
+        }
         this.blackTitlePseudo_img.src = "img/NB/Intitules/Pseudo.png";
+        this.blackTitlePseudo_img.onload = function (){
+            initLoaded();
+        }
         this.colorTitlePseudo_img.src = "img/Couleur/Intitules/Pseudo.png";
+        this.colorTitlePseudo_img.onload = function (){
+            initLoaded();
+        }
         this.blackTitleAlias_img.src = "img/NB/Intitules/Alias.png";
+        this.blackTitleAlias_img.onload = function (){
+            initLoaded();
+        }
         this.colorTitleAlias_img.src = "img/Couleur/Intitules/Alias.png";
+        this.colorTitleAlias_img.onload = function (){
+            initLoaded();
+        }
         this.blackTitlePronoms_img.src = "img/NB/Intitules/Pronoms.png";
+        this.blackTitlePronoms_img.onload = function (){
+            initLoaded();
+        }
         this.colorTitlePronoms_img.src = "img/Couleur/Intitules/Pronoms.png";
+        this.colorTitlePronoms_img.onload = function (){
+            initLoaded();
+        }
 
 
         this.blackHouseImg.src = "img/NB/Maisons/Sans_Maison.png";
+        this.blackHouseImg.onload = function (){
+            initLoaded();
+        }
         this.colorHouseImg.src = "img/Couleur/Maisons/Sans_Maison.png";
+        this.colorHouseImg.onload = function (){
+            initLoaded();
+        }
 
+        function initLoaded() {
+            initLoadCnt++;
+            checkAllLoaded();
+        }
+        function checkAllLoaded() {
+
+            const loadNeeded = 14;
+            if(initLoadCnt == loadNeeded){reloadCanvas();}
+        }
     }
 
     SetHouseImage() {
         this.blackHouseImg.src = "img/NB/Maisons/"+this.ImagesName[this.houseIndex]+".png";
         this.blackHouseImg.onload = function (){
-            this.blackCanvasContext.drawImage(this.blackHouseImg,0,0);
+            reloadCanvas();
         }
         this.colorHouseImg.src = "img/Couleur/Maisons/"+this.ImagesName[this.houseIndex]+".png";
-        /*this.colorHouseImg.onload = function (){
-            this.colorCanvasContext.drawImage(this.colorHouseImg,0,0);
-        }*/
-        this.UpdateCanvas();
+        this.colorHouseImg.onload = function (){
+            reloadCanvas();
+        }
+        //this.UpdateCanvas();
     }
 
     UpdateCanvas(){
@@ -84,7 +135,7 @@ class Card {
         this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
 
         let fullStatut = this.statut;
-        if(this.statut == "Invite" && this.inviteur != ""){
+        if(/^I*^/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
         this.blackCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
@@ -112,13 +163,11 @@ class Card {
         this.colorCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
 
         //-HOUSE-
-        this.blackCanvasContext.drawImage(this.blackHouseImg,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorHouseImg,0,0),380,242;
+        this.blackCanvasContext.drawImage(this.blackHouseImg,0,0);
+        this.colorCanvasContext.drawImage(this.colorHouseImg,0,0);
     }
 }
-function UpdateField(fieldId, thisEllement) {
-    card.UpdateCanvas();
-}
+
 function DownloadCard(type) {
     let cardImage = type == 0?
         colorCanvas.toDataURL("cardImage/png"):
@@ -132,11 +181,15 @@ function DownloadCard(type) {
     aDownloadLink.click();
     console.log("downloadStarted");
 }
-
+function reloadCanvas() {
+    card.UpdateCanvas();
+}
 let colorCanvas = document.getElementById("black-canvas");
 let blackCanvas = document.getElementById("color-canvas");
 let colorCanvas_context = colorCanvas.getContext("2d");
 let blackCanvas_context = blackCanvas.getContext("2d");
+
+let initLoadCnt = 0;
 
 card = new Card(colorCanvas_context, blackCanvas_context);
 card.Init();
@@ -144,7 +197,7 @@ card.Init();
 //Events---------------
 document.getElementById('statut').onchange = function () {
     let useDisplay = "none";
-    if(this.value == "Invite"){
+    if(/^I*^/.test(this.statut)){
         useDisplay = "block";
     }
     document.getElementById("inviteur-item").style.display = useDisplay;
@@ -177,7 +230,13 @@ document.getElementById('profilImage').onchange = function () {
     console.log(this.value);
     card.blackProfileSource.src = URL.createObjectURL(document.getElementById('profilImage').files[0]);
     card.colorProfileSource.src = URL.createObjectURL(document.getElementById('profilImage').files[0]);
-    card.UpdateCanvas();
+    card.blackProfileSource.onload = function (){
+        reloadCanvas();
+    }
+    card.colorProfileSource.onload = function (){
+        reloadCanvas();
+    }
+    //card.UpdateCanvas();
 }
 
 card.UpdateCanvas();
