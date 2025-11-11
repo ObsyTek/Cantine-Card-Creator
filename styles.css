@@ -27,7 +27,15 @@ body{
         display: block;
     }
 }
-
+.helper-link{
+    display: block;
+    color: #0297FF;
+    /*background-color: #FFFFFF;*/
+    font-weight: 1000;
+    font-size: 1rem;
+    width: 100vw;
+    text-align: center;
+}
 .filling-form *{
     display: flex;
     flex-direction: column;
