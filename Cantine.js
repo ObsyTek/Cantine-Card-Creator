@@ -35,8 +35,13 @@ class Card {
     }
     Init(){
 
-        blackCanvas_context.font = "22pt Roboto Condensed";
-        colorCanvas_context.font = "22pt Roboto Condensed";
+        //this.blackCanvasContext.font = "20pt Roboto Condensed";
+        //this.colorCanvasContext.font = "20pt Roboto Condensed";
+
+        this.blackCanvasContext.lineWidth = 7;
+        this.colorCanvasContext.lineWidth = 7;
+        this.blackCanvasContext.strokeStyle = "#EBECEC";
+        this.colorCanvasContext.strokeStyle = "#D2DDF1";
 
         this.blackBackground_img.src = "img/NB/Fonds/Fond.png";
         this.blackBackground_img.onload = function (){
@@ -131,54 +136,71 @@ class Card {
         this.colorCanvasContext.drawImage(this.colorBackground_img,0,0,380,242);
 
         //-STATUT-
-        this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
-
         let fullStatut = this.statut;
         if(/^I/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
-        this.blackCanvasContext.lineWidth = 7;
-        this.colorCanvasContext.lineWidth = 7;
-        this.blackCanvasContext.strokeStyle = "#EBECEC";
-        this.colorCanvasContext.strokeStyle = "#D2DDF1";
-
+        this.PrintOnCard(fullStatut.toUpperCase(),122,85,true);
+        /*
         this.blackCanvasContext.strokeText(fullStatut.toUpperCase(),122,85);
         this.blackCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
         this.colorCanvasContext.strokeText(fullStatut.toUpperCase(),122,85,);
         this.colorCanvasContext.fillText(fullStatut.toUpperCase(),122,85,);
+        */
+
+        this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
 
         //-PSEUDO--
-        this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
-
+        this.PrintOnCard(this.pseudo.toUpperCase(),122,130);
+        /*
         this.blackCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
         this.blackCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
         this.colorCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
         this.colorCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
+        */
+        this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
 
         //-ALIAS-
-        this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
-
+        this.PrintOnCard(this.alias.toUpperCase(),120,180);
+        /*
         this.blackCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
         this.blackCanvasContext.fillText(this.alias.toUpperCase(),120,180);
         this.colorCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
         this.colorCanvasContext.fillText(this.alias.toUpperCase(),120,180);
-        //UseRoboto(this.alias.toUpperCase(),120,180);
+        */
+        this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
 
         //-PRONOM-
-        this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
-
+        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
+        /*
         this.blackCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
         this.blackCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
         this.colorCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
         this.colorCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
+        */
+        this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
+        this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
 
         //-HOUSE-
         this.blackCanvasContext.drawImage(this.blackHouseImg,0,0);
         this.colorCanvasContext.drawImage(this.colorHouseImg,0,0);
+    }
+    PrintOnCard(text,xPos,yPos,label = false){
+        if(label){
+            this.blackCanvasContext.font = "20pt Pixelify Sans";
+            this.colorCanvasContext.font = "20pt Pixelify Sans";
+        }else {
+            this.blackCanvasContext.font = "20pt Roboto Condensed";
+            this.colorCanvasContext.font = "20pt Roboto Condensed";
+        }
+        this.blackCanvasContext.strokeText(text,xPos,yPos);
+        this.blackCanvasContext.fillText(text,xPos,yPos);
+        this.colorCanvasContext.strokeText(text,xPos,yPos);
+        this.colorCanvasContext.fillText(text,xPos,yPos);
+
     }
 }
 
@@ -199,13 +221,23 @@ function reloadCanvas() {
     card.UpdateCanvas();
 }
 /*--------------------------------------------------------------------------------------------------*/
+function loadFont(name,url){
+    let customFont = new FontFace(name, "url(" + url + ")");
 
+    customFont.load().then((font) => {
+        document.fonts.add(font);
+        console.log("Font loaded: "+name);
+    });
+}
+loadFont("Roboto Condensed","https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed&display=swap")
+/*
 let customFont = new FontFace("Roboto Condensed", "url(" + "https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed&display=swap" + ")");
 
 customFont.load().then((font) => {
     document.fonts.add(font);
     console.log("Font loaded: "+"Roboto Condensed");
 });
+*/
 
 let colorCanvas = document.getElementById("black-canvas");
 let blackCanvas = document.getElementById("color-canvas");
