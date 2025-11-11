@@ -23,7 +23,7 @@ class Card {
         this.blackHouseImg = new Image();
         this.colorHouseImg = new Image();
 
-        this.statut = "Academicien";
+        this.statut = "Académicien";
         this.inviteur = "";
         this.pseudo = "";
         this.alias = "";
@@ -38,8 +38,8 @@ class Card {
         //this.blackCanvasContext.font = "20pt Roboto Condensed";
         //this.colorCanvasContext.font = "20pt Roboto Condensed";
 
-        this.blackCanvasContext.lineWidth = 7;
-        this.colorCanvasContext.lineWidth = 7;
+        //this.blackCanvasContext.lineWidth = 7;
+        //this.colorCanvasContext.lineWidth = 7;
         this.blackCanvasContext.strokeStyle = "#EBECEC";
         this.colorCanvasContext.strokeStyle = "#D2DDF1";
 
@@ -140,49 +140,29 @@ class Card {
         if(/^I/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
-        this.PrintOnCard(fullStatut.toUpperCase(),122,85,true);
-        /*
-        this.blackCanvasContext.strokeText(fullStatut.toUpperCase(),122,85);
-        this.blackCanvasContext.fillText(fullStatut.toUpperCase(),122,85);
-        this.colorCanvasContext.strokeText(fullStatut.toUpperCase(),122,85,);
-        this.colorCanvasContext.fillText(fullStatut.toUpperCase(),122,85,);
-        */
+        this.PrintOnCard(fullStatut.toUpperCase(),122,90);
+        this.PrintOnCard("Statut:",122,90-25,true);
 
-        this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
+        //this.blackCanvasContext.drawImage(this.blackTitleStatut_img,0,0,380,242);
+        //this.colorCanvasContext.drawImage(this.colorTitleStatut_img,0,0,380,242);
 
         //-PSEUDO--
-        this.PrintOnCard(this.pseudo.toUpperCase(),122,130);
-        /*
-        this.blackCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
-        this.blackCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
-        this.colorCanvasContext.strokeText(this.pseudo.toUpperCase(),122,130);
-        this.colorCanvasContext.fillText(this.pseudo.toUpperCase(),122,130);
-        */
-        this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
+        this.PrintOnCard(this.pseudo.toUpperCase(),122,135);
+        this.PrintOnCard("Pseudo:",122,135-25,true);
+        //this.blackCanvasContext.drawImage(this.blackTitlePseudo_img,0,0,380,242);
+        //this.colorCanvasContext.drawImage(this.colorTitlePseudo_img,0,0,380,242);
 
         //-ALIAS-
-        this.PrintOnCard(this.alias.toUpperCase(),120,180);
-        /*
-        this.blackCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
-        this.blackCanvasContext.fillText(this.alias.toUpperCase(),120,180);
-        this.colorCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
-        this.colorCanvasContext.fillText(this.alias.toUpperCase(),120,180);
-        */
-        this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
+        this.PrintOnCard(this.alias.toUpperCase(),122,185);
+        this.PrintOnCard("Prénom/Alias:",122,185-25,true);
+        //this.blackCanvasContext.drawImage(this.blackTitleAlias_img,0,0,380,242);
+        //this.colorCanvasContext.drawImage(this.colorTitleAlias_img,0,0,380,242);
 
         //-PRONOM-
-        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
-        /*
-        this.blackCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
-        this.blackCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
-        this.colorCanvasContext.strokeText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
-        this.colorCanvasContext.fillText(this.pronoms.toUpperCase().replaceAll(" "," / "),120,225);
-        */
-        this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
-        this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
+        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),120,230);
+        this.PrintOnCard("Pronoms:",122,230-25,true);
+        //this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
+        //this.colorCanvasContext.drawImage(this.colorTitlePronoms_img,0,0,380,242);
 
         //-HOUSE-
         this.blackCanvasContext.drawImage(this.blackHouseImg,0,0);
@@ -190,11 +170,19 @@ class Card {
     }
     PrintOnCard(text,xPos,yPos,label = false){
         if(label){
-            this.blackCanvasContext.font = "20pt Pixelify Sans";
-            this.colorCanvasContext.font = "20pt Pixelify Sans";
+            this.blackCanvasContext.lineWidth = 3;
+            this.colorCanvasContext.lineWidth = 3;
+            this.blackCanvasContext.font = "11pt Pixelify Sans";
+            this.colorCanvasContext.font = "11pt Pixelify Sans";
+            this.blackCanvasContext.fillStyle = "#444445";
+            this.colorCanvasContext.fillStyle = "#27537A";
         }else {
-            this.blackCanvasContext.font = "20pt Roboto Condensed";
-            this.colorCanvasContext.font = "20pt Roboto Condensed";
+            this.blackCanvasContext.lineWidth = 7;
+            this.colorCanvasContext.lineWidth = 7;
+            this.blackCanvasContext.font = "18pt Roboto Condensed";
+            this.colorCanvasContext.font = "18pt Roboto Condensed";
+            this.blackCanvasContext.fillStyle = "#000";
+            this.colorCanvasContext.fillStyle = "#000";
         }
         this.blackCanvasContext.strokeText(text,xPos,yPos);
         this.blackCanvasContext.fillText(text,xPos,yPos);
