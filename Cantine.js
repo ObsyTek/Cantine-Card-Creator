@@ -35,8 +35,8 @@ class Card {
     }
     Init(){
 
-        this.blackCanvasContext.font = "22px Roboto";
-        this.colorCanvasContext.font = "22px Roboto";
+        blackCanvas_context.font = "22pt Roboto Condensed";
+        colorCanvas_context.font = "22pt Roboto Condensed";
 
         this.blackBackground_img.src = "img/NB/Fonds/Fond.png";
         this.blackBackground_img.onload = function (){
@@ -165,6 +165,7 @@ class Card {
         this.blackCanvasContext.fillText(this.alias.toUpperCase(),120,180);
         this.colorCanvasContext.strokeText(this.alias.toUpperCase(),120,180);
         this.colorCanvasContext.fillText(this.alias.toUpperCase(),120,180);
+        //UseRoboto(this.alias.toUpperCase(),120,180);
 
         //-PRONOM-
         this.blackCanvasContext.drawImage(this.blackTitlePronoms_img,0,0,380,242);
@@ -197,13 +198,22 @@ function DownloadCard(type) {
 function reloadCanvas() {
     card.UpdateCanvas();
 }
+/*--------------------------------------------------------------------------------------------------*/
+
+let customFont = new FontFace("Roboto Condensed", "url(" + "https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed&display=swap" + ")");
+
+customFont.load().then((font) => {
+    document.fonts.add(font);
+    console.log("Font loaded: "+"Roboto Condensed");
+});
+
 let colorCanvas = document.getElementById("black-canvas");
 let blackCanvas = document.getElementById("color-canvas");
 let colorCanvas_context = colorCanvas.getContext("2d");
 let blackCanvas_context = blackCanvas.getContext("2d");
 
 let initLoadCnt = 0;
-
+//init();
 card = new Card(colorCanvas_context, blackCanvas_context);
 card.Init();
 
