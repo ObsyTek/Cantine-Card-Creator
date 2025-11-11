@@ -1,9 +1,4 @@
-@font-face{
-    font-family: "Roboto Condensed", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
+
 body{
     font-family: "DM Sans Text", serif;
     font-size: 2rem;
