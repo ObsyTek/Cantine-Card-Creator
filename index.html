@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cantine Card Creator</title>
+    <meta name="description" content="Générateur de carte de cantine.">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="Cantine.js"></script>
+</head>
+<body>
+<div class="title">
+    <h1>Cantine Card Creator</h1>
+</div>
+<div class="container">
+
+    <div class="filling-form">
+
+        <!--form method="post" action=""-->
+        <div class="item">
+            <label for="statut">Statut: </label>
+            <select id="statut" name="statut" alt="test">
+                <option value="Academy">Academicien.ne</option>
+                <option value="Invite">Invité.e</option>
+            </select>
+        </div>
+        <div id="inviteur-item" style="display: none">
+            <label for="inviteur" id="inviteur-label">Invité de:</label>
+            <input type="text" name="Inviteur" id="inviteur">
+        </div>
+            <!--br-->
+            <div class="item">
+            <label for="pseudo"> Pseudo: </label>
+            <input type="text" name="Peudo" id="pseudo" placeholder="Pseudo">
+            </div>
+            <!--br-->
+            <div class="item">
+            <label for="alias"> Prenom/Alias: </label>
+            <input type="text" name="Alias" id="alias" placeholder="Alias">
+            </div>
+            <!--br-->
+            <div class="item">
+            <label for="pronoms"> Pronoms: </label>
+            <input type="text" name="Pronoms" id="pronoms" placeholder="il, elle, iel">
+            </div>
+            <!--br-->
+            <div class="item">
+            <label for="house">Maison: </label>
+            <select id="house" name="house">
+                <option value=0>Sans maison</option>
+                <option value=1>Cheatar</option>
+                <option value=2>seldaigle</option>
+                <option value=3>Campeurdor</option>
+                <option value=4>Lootsouffle</option>
+            </select>
+            </div>
+            <!--br-->
+            <div class="item">
+            <label for="profilImage"> Image de profile: </label>
+            <input type="file" id="profilImage" accept="image/*">
+            </div>
+            <!--button type="button" id="upload">Upload profil image</button-->
+            <!--br-->
+            <button type="button" onclick="UpdateField(0,this)">Reload Images</button>
+
+        <!--/form-->
+
+    </div>
+
+    <div class="generate-img">
+        <section class="cardPreview">
+            <canvas id="black-canvas" width="380" height="242" ></canvas>
+
+            <button onclick="DownloadCard(0)">Download Black</button>
+        </section>
+        <section class="cardPreview">
+            <canvas id="color-canvas" width="380" height="242" ></canvas>
+
+            <button onclick="DownloadCard(1)">Download Color</button>
+        </section>
+    </div>
+
+</div>
+</body>

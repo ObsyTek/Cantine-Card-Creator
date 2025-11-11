@@ -1,0 +1,40 @@
+
+body{
+    font-family: "DM Sans Text", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    color: #FFF;
+    background: #111;
+
+    transition: all .2s ease;
+}
+
+
+.filling-form *{
+    display: flex;
+    flex-direction: column;
+    min-height: 25px;
+    padding-bottom: 0.5rem;
+    }
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.generate-img{
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.cardPreview{
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.cardPreview canvas{
+    padding-block: 1rem;
+}
