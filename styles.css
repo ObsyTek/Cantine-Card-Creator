@@ -28,12 +28,23 @@ body{
 }
 a {
     color: #0297FF;
-    width: 100vw;
+    font-weight: 1000;
+    font-size: 1rem;
+    max-width: 95vw;
+    /*width: 100vw;*/
 }
+/*
+.helper-link{
+
+    color: #0297FF;
+    font-weight: 1000;
+    font-size: 1rem;
+    max-width: 95vw;
+}*/
 .filling-form{
-    margin-top: 20vh;
+    margin-top: 5vh;
 }
-.filling-form *{
+.filling-form .item{
     display: flex;
     flex-direction: column;
     min-height: 25px;
@@ -67,16 +78,6 @@ a {
     font-size: .5em;
 }
 
-.helper-link{
-    display: block;
-    color: #0297FF;
-    /*background-color: #FFFFFF;*/
-    font-weight: 1000;
-    font-size: 1rem;
-    max-width: 95vw;
-    text-align: center;
-    margin-inline: auto;
-}
 .footer p{
     text-align: center;
 }

@@ -19,56 +19,61 @@
 
 <div class="container">
 
-    <div class="filling-form">
+    <div class="form-container">
+        <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQydXW5hZisGVUnmUGP7_DSgX1Ac2ObamP5Tu6hk6fR3xL6QPB1NHoBqYbkJnhaL-w5Mp-4rPmcWzeC/pubhtml"
+           class="helper-link" target="_blank">Aide? &#8658 comment remplir et télécharger votre carte de cantine <br>clickez moi </a>
 
-        <!--form method="post" action=""-->
-        <div class="item">
-            <label for="statut">Statut: </label>
-            <select id="statut" name="statut" >
-                <option value="Académicien">Academicien</option>
-                <option value="Académicienne">Academicienne</option>
-                <option value="Académicien.ne">Academicien.ne</option>
-                <option value="Invité">Invité</option>
-                <option value="Invitée">Invitée</option>
-                <option value="Invité.e">Invité.e</option>
-            </select>
-        </div>
-        <div id="inviteur-item" style="display: none">
-            <label for="inviteur" id="inviteur-label">Invité de:</label>
-            <input type="text" name="Inviteur" id="inviteur">
-        </div>
-        <!--br-->
-        <div class="item">
-            <label for="pseudo"> Pseudo: </label>
-            <input type="text" name="Peudo" id="pseudo" placeholder="Pseudo">
-        </div>
+        <div class="filling-form">
+            <!--form method="post" action=""-->
+            <div class="item">
+                <label for="statut">Statut: </label>
+                <select id="statut" name="statut" >
+                    <option value="Académicien">Academicien</option>
+                    <option value="Académicienne">Academicienne</option>
+                    <option value="Académicien.ne">Academicien.ne</option>
+                    <option value="Invité">Invité</option>
+                    <option value="Invitée">Invitée</option>
+                    <option value="Invité.e">Invité.e</option>
+                </select>
+            </div>
+            <div id="inviteur-item" style="display: none">
+                <label for="inviteur" id="inviteur-label">Invité de:</label>
+                <input type="text" name="Inviteur" id="inviteur">
+            </div>
             <!--br-->
-        <div class="item">
-            <label for="alias"> Prénom/Alias: </label>
-            <input type="text" name="Alias" id="alias" placeholder="Alias">
-        </div>
-            <!--br-->
-        <div class="item">
-            <label for="pronoms"> Pronoms: </label>
-            <input type="text" name="Pronoms" id="pronoms" placeholder="il elle iel">
-        </div>
-            <!--br-->
-        <div class="item">
-            <label for="house">Maison: </label>
-            <select id="house" name="house">
-                <option value=0>Sans maison</option>
-                <option value=1>Cheatar</option>
-                <option value=2>Seldaigle</option>
-                <option value=3>Campeurdor</option>
-                <option value=4>Lootsouffle</option>
-            </select>
-        </div>
-            <!--br-->
-        <div class="item">
-            <label for="profilImage"> Image de profil: </label>
-            <input type="file" id="profilImage" accept="image/*">
-        </div>
+            <div class="item">
+                <label for="pseudo"> Pseudo: </label>
+                <input type="text" name="Peudo" id="pseudo" placeholder="Pseudo">
+            </div>
+                <!--br-->
+            <div class="item">
+                <label for="alias"> Prénom/Alias: </label>
+                <input type="text" name="Alias" id="alias" placeholder="Alias">
+            </div>
+                <!--br-->
+            <div class="item">
+                <label for="pronoms"> Pronoms: </label>
+                <input type="text" name="Pronoms" id="pronoms" placeholder="il elle iel">
+            </div>
+                <!--br-->
+            <div class="item">
+                <label for="house">Maison: </label>
+                <select id="house" name="house">
+                    <option value=0 selected="selected">Vide</option>
+                    <option value=1>Sans maison</option>
+                    <option value=2>Cheatar</option>
+                    <option value=3>Seldaigle</option>
+                    <option value=4>Campeurdor</option>
+                    <option value=5>Lootsouffle</option>
+                </select>
+            </div>
+                <!--br-->
+            <div class="item">
+                <label for="profilImage"> Image de profil: </label>
+                <input type="file" id="profilImage" accept="image/*">
+            </div>
 
+        </div>
     </div>
 
     <div class="generate-img">
@@ -80,11 +85,16 @@
             <canvas id="color-canvas" width="1040" height="660"></canvas>
             <button onclick="DownloadCard(1)">Download Color</button>
         </section>
+        <section class="cardPreview">
+            <a href="https://docs.google.com/document/d/1RXviJ1c0TotiGJBnUgBGN1sMc5uCDhnRjv6P_ygbL1Y/copy?usp=sharing"
+               class="helper-link" target="_blank">Votre impression ne vous paraît pas à la bonne taille ? <br>
+                Vous voulez imprimer en imprimerie ? <br>
+                Document de formatage rapide avec mise à l'échelle automatique de l'image (cliquez moi). </a>
+        </section>
     </div>
 </div>
 <div class="footer">
-    <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQydXW5hZisGVUnmUGP7_DSgX1Ac2ObamP5Tu6hk6fR3xL6QPB1NHoBqYbkJnhaL-w5Mp-4rPmcWzeC/pubhtml"
-       class="helper-link" target="_blank">Aide? &#8658 comment remplir et télécharger votre carte de cantine <br>clickez moi </a>
+
     <h2 style="text-align: center; margin-inline:auto; margin-top:100px">Crédits:</h2>
     <p class="credits">
         Streameur directeur de la commu:<br>
@@ -93,9 +103,9 @@
         <br>
         Icones originales des maisons:<br> <a href="https://lospec.com/daaweed" target="_blank"> <img src="https://cdn.lospec.com/avatar/daaweed.png" alt="DaaWeeD"></a>
         <br>
-        autre graphiques:<br> <a href="https://linktr.ee/ObsyTek" target="_blank"> <img src="https://ugc.production.linktr.ee/86ed41ed-d5d2-46e1-b530-c032212c931a_bunnyhead.png?io=true&size=avatar-v3_0" alt="ObsyTek"></a>
+        Autre graphiques:<br> <a href="https://linktr.ee/ObsyTek" target="_blank"> <img src="https://ugc.production.linktr.ee/86ed41ed-d5d2-46e1-b530-c032212c931a_bunnyhead.png?io=true&size=avatar-v3_0" alt="ObsyTek"></a>
         <br>
-        dev:<br> <a href="https://github.com/kohotatsu" target="_blank"><img src="https://kohotatsu.github.io/BasicPortfolio/img/bunbun500.png" alt="Nerudas"></a>
+        Dev:<br> <a href="https://github.com/kohotatsu" target="_blank"><img src="https://kohotatsu.github.io/BasicPortfolio/img/bunbun500.png" alt="Nerudas"></a>
     </p>
 </div>
 </body>

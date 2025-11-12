@@ -9,7 +9,7 @@ class Card {
         this.blackBackground_img = new Image();
         this.colorBackground_img = new Image();
 
-        this.ImagesName = ["Lantern","Skull","Sel","Tente","Coffre"];
+        this.ImagesName = ["VIDE","Lantern","Skull","Sel","Tente","Coffre"];
         this.blackHouseImg = new Image();
         this.colorHouseImg = new Image();
 
@@ -49,11 +49,11 @@ class Card {
             initLoaded();
         }
 
-        this.blackHouseImg.src = "img/NB/Maisons/Lantern.png";
+        this.blackHouseImg.src = "img/NB/Maisons/VIDE.png";
         this.blackHouseImg.onload = function (){
             initLoaded();
         }
-        this.colorHouseImg.src = "img/Couleur/Maisons/Lantern.png";
+        this.colorHouseImg.src = "img/Couleur/Maisons/VIDE.png";
         this.colorHouseImg.onload = function (){
             initLoaded();
         }
