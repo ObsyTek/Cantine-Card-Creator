@@ -32,13 +32,16 @@ class Card {
         this.blackProfileSource = new Image();
         this.colorProfileSource = new Image();
 
+        this.fieldStart = 220;
+        this.fieldSpacing = 125;
+        this.labelSpacing = 55;
     }
     Init(){
 
         this.blackCanvasContext.strokeStyle = "#EBECEC";
         this.colorCanvasContext.strokeStyle = "#D2DDF1";
 
-        this.blackBackground_img.src = "img/NB/Fonds/Fond.svg";
+        this.blackBackground_img.src = "img/NB/Fonds/Fond.png";
         this.blackBackground_img.onload = function (){
             initLoaded();
         }
@@ -130,25 +133,32 @@ class Card {
         this.blackCanvasContext.drawImage(this.blackBackground_img,0,0,canvasWidth,canvasHeight);
         this.colorCanvasContext.drawImage(this.colorBackground_img,0,0,canvasWidth,canvasHeight);
 
+        let visibleFieldIndex = 0;
         //-STATUT-
         let fullStatut = this.statut;
         if(/^I/.test(this.statut) && this.inviteur != ""){
             fullStatut += " de " + this.inviteur ;
         }
-        this.PrintOnCard(fullStatut.toUpperCase(),320,240);
-        this.PrintOnCard("Statut:",320,240-25,true);
-
+        if(this.statut != ""){
+            this.PrintOnCard(fullStatut.toUpperCase(), 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing);
+            this.PrintOnCard("Statut:", 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing - this.labelSpacing, true);
+            visibleFieldIndex++;
+        }
         //-PSEUDO--
-        this.PrintOnCard(this.pseudo.toUpperCase(),320,330);
-        this.PrintOnCard("Pseudo:",320,330-25,true);
-
+        if(this.pseudo != ""){
+            this.PrintOnCard(this.pseudo.toUpperCase(), 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing);
+            this.PrintOnCard("Pseudo:", 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing - this.labelSpacing, true);
+            visibleFieldIndex++;
+        }
         //-ALIAS-
-        this.PrintOnCard(this.alias.toUpperCase(),320,410);
-        this.PrintOnCard("Prénom/Alias:",320,410-25,true);
-
+        if(this.alias != ""){
+            this.PrintOnCard(this.alias.toUpperCase(), 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing);
+            this.PrintOnCard("Prénom/Alias:", 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing - this.labelSpacing, true);
+            visibleFieldIndex++;
+        }
         //-PRONOM-
-        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),320,520);
-        this.PrintOnCard("Pronoms:",320,520-25,true);
+        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),325,this.fieldStart+visibleFieldIndex*this.fieldSpacing);
+        this.PrintOnCard("Pronoms:",325,this.fieldStart+visibleFieldIndex*this.fieldSpacing-this.labelSpacing,true);
 
         //-HOUSE-
         this.blackCanvasContext.drawImage(this.blackHouseImg,0,0,canvasWidth,canvasHeight);
@@ -158,15 +168,15 @@ class Card {
         if(label){
             this.blackCanvasContext.lineWidth = 3;
             this.colorCanvasContext.lineWidth = 3;
-            this.blackCanvasContext.font = "11pt Pixelify Sans";
-            this.colorCanvasContext.font = "11pt Pixelify Sans";
+            this.blackCanvasContext.font = "20pt Pixelify Sans";
+            this.colorCanvasContext.font = "20pt Pixelify Sans";
             this.blackCanvasContext.fillStyle = "#444445";
             this.colorCanvasContext.fillStyle = "#27537A";
         }else {
             this.blackCanvasContext.lineWidth = 7;
             this.colorCanvasContext.lineWidth = 7;
-            this.blackCanvasContext.font = "18pt Roboto Condensed";
-            this.colorCanvasContext.font = "18pt Roboto Condensed";
+            this.blackCanvasContext.font = "36pt Roboto Condensed";
+            this.colorCanvasContext.font = "36pt Roboto Condensed";
             this.blackCanvasContext.fillStyle = "#000";
             this.colorCanvasContext.fillStyle = "#000";
         }
