@@ -151,7 +151,9 @@ function DownloadCard(type) {
     let aDownloadLink = document.createElement('a');
     // Add the name of the file to the link
     let colorString = type == 0?"Black_":"Color_";
-    aDownloadLink.download = colorString+'canvas_image.png';
+    let nameString = card.pseudo == ""?card.alias :card.pseudo;
+    if(nameString != "") nameString+="_"
+    aDownloadLink.download = colorString+nameString+'CantineCard.png';
     // Attach the data to the link
     aDownloadLink.href = cardImage;
     // Get the code to click the download link
