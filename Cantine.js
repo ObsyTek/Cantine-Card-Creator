@@ -112,9 +112,10 @@ class Card {
             visibleFieldIndex++;
         }
         //-PRONOM-
-        this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" "," / "),325,this.fieldStart+visibleFieldIndex*this.fieldSpacing);
-        this.PrintOnCard("Pronoms:",325,this.fieldStart+visibleFieldIndex*this.fieldSpacing-this.labelSpacing,true);
-
+        if(this.pronoms != ""){
+            this.PrintOnCard(this.pronoms.toUpperCase().replaceAll(" ", " / "), 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing);
+            this.PrintOnCard("Pronoms:", 325, this.fieldStart + visibleFieldIndex * this.fieldSpacing - this.labelSpacing, true);
+        }
         //-HOUSE-
         this.blackCanvasContext.drawImage(this.blackHouseImg,61,400,240,240);
         this.colorCanvasContext.drawImage(this.colorHouseImg,61,400,240,240);
