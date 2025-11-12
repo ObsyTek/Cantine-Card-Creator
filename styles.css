@@ -29,9 +29,15 @@ body{
 a {
     color: #0297FF;
     font-weight: 1000;
-    font-size: 1rem;
+    font-size: 1.25rem;
     max-width: 95vw;
     /*width: 100vw;*/
+}
+.prelink-paragraph{
+    color: #0297FF;
+    font-weight: 1000;
+    font-size: 1.25rem;
+
 }
 /*
 .helper-link{
