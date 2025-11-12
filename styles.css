@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto+Condensed&display=swap');
 body{
-    font-family: "DM Sans Text", serif;
+    font-family: "Roboto Condensed", serif;
     font-size: 2rem;
     font-weight: 400;
     font-style: normal;
@@ -10,7 +10,8 @@ body{
 }
 .titleImgRow{
     margin-inline: auto;
-    max-width: 95vw;
+    padding-top: 8vh;
+    max-width: 85vw;
     display: block;
 }
 .titleImgColumn{
