@@ -121,15 +121,15 @@ class Card {
     }
     PrintOnCard(text,xPos,yPos,label = false){
         if(label){
-            this.blackCanvasContext.lineWidth = 3;
-            this.colorCanvasContext.lineWidth = 3;
+            this.blackCanvasContext.lineWidth = 7;
+            this.colorCanvasContext.lineWidth = 7;
             this.blackCanvasContext.font = "20pt Pixelify Sans";
             this.colorCanvasContext.font = "20pt Pixelify Sans";
             this.blackCanvasContext.fillStyle = "#444445";
             this.colorCanvasContext.fillStyle = "#27537A";
         }else {
-            this.blackCanvasContext.lineWidth = 7;
-            this.colorCanvasContext.lineWidth = 7;
+            this.blackCanvasContext.lineWidth = 12;
+            this.colorCanvasContext.lineWidth = 12;
             this.blackCanvasContext.font = "36pt Roboto Condensed";
             this.colorCanvasContext.font = "36pt Roboto Condensed";
             this.blackCanvasContext.fillStyle = "#000";
