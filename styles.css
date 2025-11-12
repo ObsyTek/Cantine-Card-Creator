@@ -30,6 +30,9 @@ a {
     color: #0297FF;
     width: 100vw;
 }
+.filling-form{
+    margin-top: 20vh;
+}
 .filling-form *{
     display: flex;
     flex-direction: column;
@@ -50,6 +53,7 @@ a {
 }
 .cardPreview{
     margin: 3rem;
+    max-width: 50vh;
     display: flex;
     flex-direction: column;
     align-content: space-between;

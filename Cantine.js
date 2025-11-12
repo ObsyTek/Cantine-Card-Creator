@@ -9,17 +9,7 @@ class Card {
         this.blackBackground_img = new Image();
         this.colorBackground_img = new Image();
 
-        this.blackTitleStatut_img = new Image();
-        this.colorTitleStatut_img = new Image();
-        this.blackTitlePseudo_img = new Image();
-        this.colorTitlePseudo_img = new Image();
-        this.blackTitleAlias_img = new Image();
-        this.colorTitleAlias_img = new Image();
-        this.blackTitlePronoms_img = new Image();
-        this.colorTitlePronoms_img = new Image();
-
-
-        this.ImagesName = ["Sans_Maison","Cheatars","Sales","Campeur","Louteurs"];
+        this.ImagesName = ["Lantern","Skull","Sel","Tente","Coffre"];
         this.blackHouseImg = new Image();
         this.colorHouseImg = new Image();
 
@@ -59,45 +49,11 @@ class Card {
             initLoaded();
         }
 
-        this.blackTitleStatut_img.src = "img/NB/Intitules/Statut.png";
-        this.blackTitleStatut_img.onload = function (){
-            initLoaded();
-        }
-        this.colorTitleStatut_img.src = "img/Couleur/Intitules/Statut.png";
-        this.colorTitleStatut_img.onload = function (){
-            initLoaded();
-        }
-        this.blackTitlePseudo_img.src = "img/NB/Intitules/Pseudo.png";
-        this.blackTitlePseudo_img.onload = function (){
-            initLoaded();
-        }
-        this.colorTitlePseudo_img.src = "img/Couleur/Intitules/Pseudo.png";
-        this.colorTitlePseudo_img.onload = function (){
-            initLoaded();
-        }
-        this.blackTitleAlias_img.src = "img/NB/Intitules/Alias.png";
-        this.blackTitleAlias_img.onload = function (){
-            initLoaded();
-        }
-        this.colorTitleAlias_img.src = "img/Couleur/Intitules/Alias.png";
-        this.colorTitleAlias_img.onload = function (){
-            initLoaded();
-        }
-        this.blackTitlePronoms_img.src = "img/NB/Intitules/Pronoms.png";
-        this.blackTitlePronoms_img.onload = function (){
-            initLoaded();
-        }
-        this.colorTitlePronoms_img.src = "img/Couleur/Intitules/Pronoms.png";
-        this.colorTitlePronoms_img.onload = function (){
-            initLoaded();
-        }
-
-
-        this.blackHouseImg.src = "img/NB/Maisons/Sans_Maison.png";
+        this.blackHouseImg.src = "img/NB/Maisons/Lantern.png";
         this.blackHouseImg.onload = function (){
             initLoaded();
         }
-        this.colorHouseImg.src = "img/Couleur/Maisons/Sans_Maison.png";
+        this.colorHouseImg.src = "img/Couleur/Maisons/Lantern.png";
         this.colorHouseImg.onload = function (){
             initLoaded();
         }
@@ -108,7 +64,7 @@ class Card {
         }
         function checkAllLoaded() {
 
-            const loadNeeded = 14;
+            const loadNeeded = 6;
             if(initLoadCnt == loadNeeded){reloadCanvas();}
         }
     }
@@ -122,7 +78,6 @@ class Card {
         this.colorHouseImg.onload = function (){
             reloadCanvas();
         }
-        //this.UpdateCanvas();
     }
 
     UpdateCanvas(){
@@ -161,8 +116,8 @@ class Card {
         this.PrintOnCard("Pronoms:",325,this.fieldStart+visibleFieldIndex*this.fieldSpacing-this.labelSpacing,true);
 
         //-HOUSE-
-        this.blackCanvasContext.drawImage(this.blackHouseImg,0,0,canvasWidth,canvasHeight);
-        this.colorCanvasContext.drawImage(this.colorHouseImg,0,0,canvasWidth,canvasHeight);
+        this.blackCanvasContext.drawImage(this.blackHouseImg,61,400,240,240);
+        this.colorCanvasContext.drawImage(this.colorHouseImg,61,400,240,240);
     }
     PrintOnCard(text,xPos,yPos,label = false){
         if(label){
